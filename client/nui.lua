@@ -7,11 +7,22 @@ end)
 
 
 RegisterNUICallback('exit', function(data) 
-    SetDisplay(false)
     print('Bezárva')
+    SetDisplay(false)
+end)
+
+RegisterNUICallback('main', function(data) 
+    print('Bezárva')
+    SetDisplay(false)
+end)
+
+RegisterNUICallback('error', function(data) 
+    print(data.error)
+    SetDisplay(false)
 end)
 
 RegisterNUICallback('hiba', function(data) 
+    SetDisplay(false)
     if notify == "ox_lib" then 
         lib.defaultNotify({
             title = 'Hiba történt',
@@ -31,7 +42,7 @@ end)
 function SetDisplay(bool)
     display = bool
     SetNuiFocus(bool, bool)
-    SendNUIMessage(json.encode{
+    SendNUIMessage({
         type = "ui",
         status = bool,
         display = bool
