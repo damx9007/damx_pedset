@@ -51,6 +51,7 @@ end
 
 Citizen.CreateThread(function() 
     while display do 
+        Citizen.Wait(0)
         DisableControlAction(0, 1, display)
         DisableControlAction(0, 2, display)
         DisableControlAction(0, 142, display)
