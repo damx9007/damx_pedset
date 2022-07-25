@@ -1,3 +1,4 @@
+local display = false
 
 RegisterNUICallback('exit', function(data) 
     SetDisplay(data)
@@ -15,5 +16,28 @@ RegisterNUICallback('hiba', function(data)
         print("behúzni a mithic-et")
     else 
         ESX.ShowNotification('Hiba! Adat: '.. data, "error", 3000)
+    end
+end)
+
+
+
+
+function SetDisplay(bool)
+    display = bool
+    SetNuiFocus(bool, bool)
+    SendNUIMessage({
+        type = "ui",
+        status = bool
+    })
+end
+
+Citizen.CreateThread(function() 
+    while display do 
+        DisableControlAction(0, 1, display)
+        DisableControlAction(0, 2, display)
+        DisableControlAction(0, 142, display)
+        DisableControlAction(0, 18, display)
+        DisableControlAction(0, 322, display)
+        DisableControlAction(0, 106, display)
     end
 end)
