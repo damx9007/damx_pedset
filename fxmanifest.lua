@@ -22,7 +22,9 @@ server_scripts {
 }
 
 files {
-	'ui/*'
+	'ui/index.html',
+	'ui/style.css',
+	'ui/app.js'
 }
 
 ui_page 'ui/index.html'
