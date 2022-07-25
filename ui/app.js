@@ -1,11 +1,5 @@
 $(document).ready(function(){
 
-    function getPedsFromRageMP(){
-        $.post('https://wiki.rage.mp/index.php?title=Peds', {url : url}, function(pedData) {
-            document.getElementById('#pedList').innerHTML = pedData;
-        })
-    }
-
     function display(bool) {
         if (bool) {
             $('#container').show();
