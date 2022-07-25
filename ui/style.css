@@ -1,8 +1,18 @@
 body {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
 }
+
 #container {
-    display: none;
+	position: absolute;
+	background: #232934;
+	height: 700px;
+	width: 1000px;
+	top: 40%;
+	left: 40%;
+	margin: -250px 0 0 -300px;
+	cursor: default;
+	display: flex;
+	flex-direction: column;
 }

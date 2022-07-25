@@ -6,6 +6,7 @@ Author 'Vislóczki Ádám'
 Description 'Player Ped Set .:::. Skin Váltó '
 Version '0.2.0'
 
+ui_page 'ui/index.html'
 
 shared_scripts {
 	'@es_extended/imports.lua',
@@ -14,8 +15,8 @@ shared_scripts {
 }
 
 client_scripts {
-	'client/nui.lua',
-	'client/client.lua'
+	'client/client.lua',
+	'client/nui.lua'
 }
 server_scripts {
 	'server/server.lua'
@@ -27,4 +28,3 @@ files {
 	'ui/app.js'
 }
 
-ui_page 'ui/index.html'
