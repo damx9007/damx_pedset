@@ -10,39 +10,55 @@ $(document).ready(function(){
     display(false)
 
 
-	$('#closePedSpawner').click(function(){
-        $.post('http://damx_pedset', JSON.stringify({}));
-    })
- 
-
     // ESEMÉNY FIGYELÉS 
     window.addEventListener('message', function(e){
-        let item = e.data;
+        let data = e.data;
 
-        if (item.type === "ui") {
-            if (item.status == true) {
+        if (data.type === "ui") {
+            if (data.status == true) {
                 display(true)
             } else {
                 display(false)
             }
         }
+		
+		if (display) {
+			getPEDS()
+		}
+		
+		
     })
-
-    document.onkeyup = function(data) {
-        if (data.which == 27) {
-            $.post('http://damx_pedset/exit', JSON.stringify({}));
+	
+    document.onkeyup = (data) => {
+        if (data.keyCode == 27) {
+            $.post('https://damx_pedset/exit', JSON.stringify({}));
             return
         }
     }
+	
+	$('#closePedSpawner').click(function(){
+		$.post('https://damx_pedset/exit', JSON.stringify({}));
+	})
+	
+	
+    function getPEDS () {
+		const peds = $.getJSON('peds.json', function(data) {
+			var p = [];
+			
+			$.each(data, function(key, val) {
+				p.push('<li id='+ key + '>'+ val +'</li>');
+			});
+			
+			$("<ul/>", {
+				"class" : "list",
+				html : p.join( "" )
+			}).appendTo( "#pedList" );
+		
+		});
+	
 
-    window.onload = function getPeds() {
-        let htmlTemplate = ``
-        
-        fetch('peds.json')
-            .then(response => response.json())
-            .then(json => $('#pedList').innerHTML = json )
+		
     }
-
 
 
 })
