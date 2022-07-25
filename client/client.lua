@@ -154,7 +154,7 @@ function SetDisplay(bool)
 end
 
 Citizen.CreateThread(function() 
-    while display then 
+    while display do 
         DisableControlAction(0, 1, display)
         DisableControlAction(0, 2, display)
         DisableControlAction(0, 142, display)
