@@ -7,7 +7,7 @@ $(document).ready(function(){
             $('#container').hide();
         }
     }
-    display(false)
+    display(true)
 
 
     // ESEMÉNY FIGYELÉS 
@@ -22,11 +22,6 @@ $(document).ready(function(){
             }
         }
 		
-		if (display) {
-			getPEDS()
-		}
-		
-		
     })
 	
     document.onkeyup = (data) => {
@@ -39,27 +34,28 @@ $(document).ready(function(){
 	$('#closePedSpawner').click(function(){
 		$.post('https://damx_pedset/exit', JSON.stringify({}));
 	})
-	
-	
-    function getPEDS () {
-		const peds = $.getJSON('peds.json', function(data) {
-			var p = [];
-			
-			$.each(data, function(key, val) {
-				p.push('<li id='+ key + '>'+ val +'</li>');
-			});
-			
-			$("<ul/>", {
-				"class" : "list",
-				html : p.join( "" )
-			}).appendTo( "#pedList" );
-		
-		});
-	
 
-		
-    }
+    
+        var pedListTemplate = '';
+        
+        for(var ped of peds){
+            pedListTemplate = pedListTemplate + `
+                <div class='card'>
+                    <div class='card-header text-center' style="font-size:12px; font-weight: bold">${ped.model}</div>
+                    <div class='card-body text-center d-flex flex-column justify-content-between'>
+                        <img class='image-responsive img-thumbnail' style='height:50%' src='https://docs.fivem.net/peds/${ped.model}.webp' alt='${ped.hash}'>
+                        <button class='btn btn-primary' id="setPed" data-model="${ped.model}">Ped Beállítása</button>
+                    </div>
 
+                </div>
+            `;
+
+        }
+
+
+        console.log(pedListTemplate);
+
+        $('#contain').html(pedListTemplate);
 
 })
 
