@@ -9,12 +9,18 @@ $(document).ready(function(){
     }
     display(false)
 
+
+	$('#closePedSpawner').click(function(){
+        $.post('http://damx_pedset', JSON.stringify({}));
+    })
+ 
+
     // ESEMÉNY FIGYELÉS 
     window.addEventListener('message', function(e){
-        let data = e.data;
+        let item = e.data;
 
-        if (data.type === "ui") {
-            if (data.status == true) {
+        if (item.type === "ui") {
+            if (item.status == true) {
                 display(true)
             } else {
                 display(false)
@@ -22,13 +28,12 @@ $(document).ready(function(){
         }
     })
 
-    document.onkeyup = (data) => {
-        if (data.keyCode == "Escape") {
+    document.onkeyup = function(data) {
+        if (data.which == 27) {
             $.post('http://damx_pedset/exit', JSON.stringify({}));
             return
         }
     }
-
 
     window.onload = function getPeds() {
         let htmlTemplate = ``
