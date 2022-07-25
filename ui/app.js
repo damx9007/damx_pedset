@@ -7,7 +7,7 @@ $(document).ready(function(){
             $('#container').hide();
         }
     }
-
+    display(false)
 
     // ESEMÉNY FIGYELÉS 
     window.addEventListener('message', function(e){
