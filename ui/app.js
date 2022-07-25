@@ -23,14 +23,20 @@ $(document).ready(function(){
     })
 
     document.onkeyup = (data) => {
-        if (data.key == "Escape") {
+        if (data.keyCode == "Escape") {
             $.post('http://damx_pedset/exit', JSON.stringify({}));
             return
         }
     }
 
 
-
+    window.onload = function getPeds() {
+        let htmlTemplate = ``
+        
+        fetch('peds.json')
+            .then(response => response.json())
+            .then(json => $('#pedList').innerHTML = json )
+    }
 
 
 

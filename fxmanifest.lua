@@ -25,6 +25,7 @@ server_scripts {
 files {
 	'ui/index.html',
 	'ui/style.css',
+	'ui/peds.json',
 	'ui/app.js'
 }
 
