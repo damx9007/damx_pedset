@@ -1,7 +1,13 @@
 local display = false
 
+
+RegisterCommand("openPed", function(source, args)
+    SetDisplay(not display)
+end)
+
+
 RegisterNUICallback('exit', function(data) 
-    SetDisplay(data)
+    SetDisplay(false)
     print('Bezárva')
 end)
 
