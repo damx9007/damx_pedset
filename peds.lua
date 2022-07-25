@@ -1,4 +1,4 @@
-PedHashes = {
+--[[PedHashes = {
     a_c_boar: 0xCE5FF074,
     a_c_cat_01: 0x573201B8,
     a_c_chickenhawk: 0xAAB71F62,
@@ -739,3 +739,5 @@ PedHashes = {
     u_m_y_tattoo_01: 0x94AE2B8C,
     u_m_y_zombie_01: 0xAC4B4506,
 }
+
+]]
