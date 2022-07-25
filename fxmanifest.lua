@@ -7,11 +7,21 @@ Description 'Player Ped Set .:::. Skin Váltó '
 Version '0.2.0'
 
 
-shared_script '@es_extended/imports.lua'
+shared_scripts {
+	'@es_extended/imports.lua',
+	'peds.lua',
+	'config.lua'
+}
 
 client_scripts {
-	'client.lua'
+	'client/client.lua'
 }
 server_scripts {
-	'server.lua'
+	'server/server.lua'
 }
+
+files {
+	'ui/*'
+}
+
+ui_page 'ui/index.html'

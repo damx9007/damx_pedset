@@ -1,7 +1,5 @@
 local PlayerData = {}
-local Perms = {
-	"char1:b6fed65efedc7fcc466f64b82ff830d9adc62edb", -- ÁDÁM
-}  
+local display = false
 
 
 
@@ -115,11 +113,12 @@ end)
 
 
 --- Jog ellenőrzése
-function checkPerms(perms)
+function checkPerms()
+    
 	local ply = ESX.GetPlayerData()
 	
 	
-	for _, v in ipairs(perms) do 
+	for _, v in ipairs(Config.Permission) do 
 		if ply.identifier == v then 
 			return true 
 		end
