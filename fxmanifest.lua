@@ -14,6 +14,7 @@ shared_scripts {
 }
 
 client_scripts {
+	'client/nui.lua',
 	'client/client.lua'
 }
 server_scripts {
