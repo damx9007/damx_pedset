@@ -25,9 +25,10 @@ end)
 function SetDisplay(bool)
     display = bool
     SetNuiFocus(bool, bool)
-    SendNUIMessage({
+    SendNUIMessage(json.encode{
         type = "ui",
-        status = bool
+        status = bool,
+        display = bool
     })
 end
 
