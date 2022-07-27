@@ -98,12 +98,31 @@ OpenMenu = function()
         menuHandle.close()
     end)
 end
- 
+if IsControlPressed(1, 44) and not blockinput then -- RB/ R1
+    if IsControlJustReleased(1, 22) then -- X/ ⬜
+        if not showtrainer then
+            showtrainer = true
+            SendNUIMessage({
+                showtrainer = true
+            })
+        else
+            showtrainer = false
+            SendNUIMessage({
+                hidetrainer = true
+            })
+        end
+    end
+end 
+
+
+
 Citizen.CreateThread(function()
 	while true do 
 		Citizen.Wait(1)
-		if IsControlJustReleased(0, 51) and IsControlJustReleased(0,38) and checkPerms then
-			TriggerEvent('damx:ped_menu')
+		if IsControlJustPressed(0, 51)  and not blockinput then
+            IsControlJustReleased(0,38) and checkPerms then
+			    TriggerEvent('damx:ped_menu')
+            end
 		end
 	end
 end)
